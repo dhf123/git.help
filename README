@@ -1,0 +1,32 @@
+1，创建秘钥
+	ssh-keygen -C "874688687@qq.com" -f ~/.ssh/github
+	连续两次enter跳过
+
+2，github添加密钥
+	在GitHub页面输入秘钥，并设置sshkey名称以记录当前使用的本地主机，防止记错后误删
+
+3，检测
+	ssh -T git@github.com 
+	完成上述步骤本机和github已经成功连接，后面正式开始提交代码
+
+4，本地有一个xxx目录，包含项目完整代码
+
+5，添加GitHub同名仓库xxx，添加完成后有步骤提示，只要按照步骤提示来即可
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin git@github.com:dhf123/xxx
+	git push -u origin master
+
+6，将代码提交到github
+	（1）将目录初始化为git本地仓库
+		git init
+	（2）添加代码文件到监控暂存区
+		git add .	#添加此目录下所有代码
+		git add README	#单独添加README文件
+	（3）提交到本地仓库
+		git commit -m "first commit"	#将暂存区代码提交到本地仓库，-m后为本次提交注释，命令不包含-m参数将使用vim等工具手动输入提交注释
+	（4）添加远程仓库
+		git remote add origin git@github.com:dhf123/xxx
+	（5）将代码push到远程仓库
+		git push -u origin master
