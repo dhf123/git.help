@@ -1,5 +1,5 @@
 1，创建秘钥
-	ssh-keygen -C "874688687@qq.com" -f ~/.ssh/github
+	ssh-keygen -t rsa -C "874688687@qq.com" -f ~/.ssh/github
 	连续两次enter跳过
 
 2，github添加密钥
