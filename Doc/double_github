@@ -1,0 +1,36 @@
+同一台电脑上使用双github账号
+
+1，生成密钥
+	密钥1
+	ssh-keygen -t rsa -C "874688687@qq.com" -f ~/.ssh/id_rsa_xxx
+	密钥2
+	ssh-keygen -t rsa -C "874688687@qq.com" -f ~/.ssh/id_rsa_yyy
+	
+2，创建config文件
+	在~/.ssh/目录下创建config文件，内容如下
+	Host xxx
+	HostName github.com
+	IdentityFile ~/.ssh/id_rsa_xxx
+
+	Host yyy
+	HostName github.com
+	IdentityFile ~/.ssh/id_rsa_yyy
+	
+3，测试
+	ssh -T git@xxx
+	ssh -T git@yyy
+	
+4，使用
+	在添加远程github仓库时，需按下面方式指定
+	git remote add origin git@xxx:github_username/repository_name.git
+	github_username github账户名
+	repository_name github仓库名
+	添加完成后就可以进行push和fetch操作。
+	
+	如果需要将同一个本地仓库，添加多个远程仓库，可以按下面方式指定
+	git remote add origin1 git@xxx:github_username1/repository_name.git
+	git remote add origin2 git@yyy:github_username2/repository_name.git
+	
+	如果需要重新从远程仓库上clone代码
+	git clone git@xxx:github_username/repository_name.git
+	
